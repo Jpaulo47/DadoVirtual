@@ -10,8 +10,8 @@ import com.google.android.material.button.MaterialButtonToggleGroup
 
 
 /**
- * This activity allows the user to roll a dice and view the result
- * on the screen.
+ * Esta activity permite ao usuário rolar um dado e visualizar o resultado
+ * na tela.
  */
 class MainActivity : AppCompatActivity() {
 
@@ -31,60 +31,53 @@ class MainActivity : AppCompatActivity() {
                 val diceImage : ImageView = findViewById(R.id.dice)
                 when (checkedId) {
                     R.id.d4 -> {
-                        //diceImage.setImageResource(R.drawable.ic_d4_1)
                         rollDice(4)
                         rollButton.setOnClickListener { rollDice(4) }
                     }
                     R.id.d6 -> {
-                        //diceImage.setImageResource(R.drawable.ic_dice1)
                         rollDice(6)
                         rollButton.setOnClickListener { rollDice(6) }
                     }
                     R.id.d8 -> {
-                        //diceImage.setImageResource(R.drawable.ic_d8_1)
                         rollDice(8)
                         rollButton.setOnClickListener { rollDice(8) }
                     }
                     R.id.d10 -> {
-                        //diceImage.setImageResource(R.drawable.ic_d10_1)
                         rollDice(10)
                         rollButton.setOnClickListener { rollDice(10) }
                     }
                     R.id.d12 -> {
-                        //diceImage.setImageResource(R.drawable.ic_d12_1)
                         rollDice(12)
                         rollButton.setOnClickListener { rollDice(12) }
                     }
                     else -> {
-                        //diceImage.setImageResource(R.drawable.ic_d20_1)
                         rollDice(20)
                         rollButton.setOnClickListener { rollDice(20) }
                     }
                 }
             } else {
                 if (toggleButtonGroup.checkedButtonId == View.NO_ID) {
-                    // Do a dice roll when the app starts
-                    Toast.makeText(this, "Selecione uma opção", Toast.LENGTH_SHORT)
+                    // Joga os dados quando o aplicativo inicia
+                    Toast.makeText(this, "Selecione uma opção", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-        // Do a dice roll when the app starts
+        // Joga os dados quando o aplicativo inicia
         rollButton.setOnClickListener { rollDice(4) }
         rollDice(4)
     }
 
     /**
-     * Roll the dice and update the screen with the result.
+     * Jogue os dados e atualize a tela com o resultado.
      */
     private fun rollDice(sides: Int) {
-        // Create new Dice object with 6 sides and roll it
+        // Cria um novo objeto Dice com 6 lados e rola
         val dice = Dice(sides)
         val diceRoll = dice.roll()
 
-        // Find the ImageView in the layout
         val diceImage : ImageView = findViewById(R.id.dice)
 
-        // Determine which drawable resource ID to use based on the dice roll
+        // Determina qual ID de recurso drawable usar com base na jogada de dados
         if(sides == 4){
             when (diceRoll) {
                 1 -> diceImage.setImageResource(R.drawable.ic_d4_1)
@@ -165,10 +158,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        // Update the content description
+        // Atualiza a descrição do conteúdo
         diceImage.contentDescription = diceRoll.toString()
 
-        // Update the screen with the dice roll
+        // Atualiza a tela com o lançamento de dados
         val resultText : TextView = findViewById(R.id.result)
         val resultString: String = getString(R.string.result)
         "$resultString $diceRoll".also { resultText.text = it }
