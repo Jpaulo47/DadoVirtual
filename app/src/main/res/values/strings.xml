@@ -1,0 +1,15 @@
+<resources>
+    <string name="button">Jogar</string>
+    <string name="dado_de_6_lados">Dado de 6 lados</string>
+    <string name="app_name">VirtualDices</string>
+    <string name="result">Result: </string>
+    <string name="roll_dice">Roll the dice!</string>
+    <string name="dice_image">Dice Image</string>
+    <string name="dice_choice">Choose the number of faces of the dice:</string>
+    <string name="d4">4</string>
+    <string name="d6">6</string>
+    <string name="d8">8</string>
+    <string name="d10">10</string>
+    <string name="d12">12</string>
+    <string name="d20">20</string>
+</resources>
